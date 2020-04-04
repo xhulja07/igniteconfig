@@ -31,12 +31,6 @@
         <!-- Set to true to enable distributed class loading for examples, default is false. -->
         <property name="peerClassLoadingEnabled" value="true"/>
       
-        <property name="defaultDataRegionConfiguration">
-            <bean class="org.apache.ignite.configuration.DataRegionConfiguration">
-                <property name="region" value="us-central1"/>
-            </bean>
-        </property>
-      
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
