@@ -30,8 +30,6 @@
       
         <!-- Set to true to enable distributed class loading for examples, default is false. -->
         <property name="peerClassLoadingEnabled" value="true"/>
-       
-        <property name="deploymentMode" value="CONTINUOUS"/>
       
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
