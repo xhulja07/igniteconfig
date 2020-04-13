@@ -1,4 +1,3 @@
-
 # An example of a Kubernetes configuration for Ignite pods deployment.
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -17,15 +16,15 @@ spec:
       containers:
         # Custom Ignite pod name.
       - name: ignite
-        image: apacheignite/ignite:2.8.0
+        image: gcr.io/crypto-topic-270614/testa:tag3
         env:
         - name: OPTION_LIBS
           value: ignite-kubernetes
         - name: CONFIG_URI
           value: https://raw.githubusercontent.com/xhulja07/igniteconfig/master/kube-persistence.xml
-                  ports:
-        # Ports to open.
-         # Might be optional depending on your Kubernetes environment.
+        ports:
+                # Ports to open.
+        # Might be optional depending on your Kubernetes environment.
         - containerPort: 11211 # REST port number.
         - containerPort: 47100 # communication SPI port number.
         - containerPort: 47500 # discovery SPI port number.
@@ -33,9 +32,10 @@ spec:
         - containerPort: 10800 # SQL port number.
         - containerPort: 10900 # Thin clients port number.
         volumeMounts:
-        - mountPath: /ignite
+        - mountPath: /opt/ignite/libs/
           name: ignite
       volumes:
       - name: ignite
         hostPath:
-          path: /home/shahinixhulja/ignite/ignite
+          path: /home/shahinixhulja/ignite2/libs/
+     
