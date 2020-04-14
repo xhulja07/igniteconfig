@@ -1,3 +1,4 @@
+
 # An example of a Kubernetes configuration for Ignite pods deployment.
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -23,7 +24,7 @@ spec:
         - name: CONFIG_URI
           value: https://raw.githubusercontent.com/xhulja07/igniteconfig/master/kube-persistence.xml
         ports:
-                # Ports to open.
+        # Ports to open.
         # Might be optional depending on your Kubernetes environment.
         - containerPort: 11211 # REST port number.
         - containerPort: 47100 # communication SPI port number.
@@ -38,4 +39,4 @@ spec:
       - name: ignite
         hostPath:
           path: /home/shahinixhulja/ignite2/libs/
-     
+         

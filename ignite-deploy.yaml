@@ -1,9 +1,11 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   # Custom Ignite cluster's name.
   name: transe
 spec:
+  # A number of Ignite pods to be started by Kubernetes initially.
+  replicas: 1
   template:
     metadata:
       labels:
@@ -13,10 +15,7 @@ spec:
       containers:
         # Custom Ignite pod name.
       - name: ignite
-        image: gcr.io/crypto-topic-270614/hello:122
-        volumeMounts:
-        - name: transe-data
-          mountPath: /opt/ignite/apache-ignite
+        image: gcr.io/crypto-topic-270614/master:master20
         env:
         - name: OPTION_LIBS
           value: ignite-kubernetes
@@ -30,8 +29,4 @@ spec:
         - containerPort: 47500 # discovery SPI port number.
         - containerPort: 49112 # JMX port number.
         - containerPort: 10800 # SQL port number.
-        - containerPort: 10900 # Thin clients port number.     
-      restartPolicy: Never
-      volumes:
-        - name: transe-data
-          emptyDir: {}
+        - containerPort: 10900 # Thin clients port number.
